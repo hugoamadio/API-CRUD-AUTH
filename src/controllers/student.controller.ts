@@ -30,7 +30,7 @@ class StudentController {
     try {
       const students = await db.student.findMany({
         orderBy: {
-          id: 'desc'
+          created_at: 'desc'
         }
       });
       if (students) {
