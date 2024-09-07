@@ -28,7 +28,11 @@ class StudentController {
 
   public async list(req: Request, res: Response) {
     try {
-      const students = await db.student.findMany();
+      const students = await db.student.findMany({
+        orderBy: {
+          id: 'desc'
+        }
+      });
       if (students) {
         return res
           .status(200)
